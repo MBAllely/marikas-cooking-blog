@@ -1,0 +1,28 @@
+<?php
+
+function outside_links_follow_networks_alter(&$networks, $uid = 0) {
+    $networks[$uid]['etsy'] = array(
+        'title' => t('Etsy'),
+        'domain' => 'etsy.com',
+    );
+
+    $networks[$uid]['redbubble'] = array(
+        'title' => t('Redbubble'),
+        'domain' => 'redbubble.com',
+    );
+
+    $networks[$uid]['imdb'] = array(
+      'title' => t('IMDB'),
+      'domain' => 'imdb.com',
+    );
+
+    $networks[$uid]['drupal'] = array(
+      'title' => t('Drupal.org'),
+      'domain' => 'drupal.org',
+    );
+
+    $networks[$uid]['github'] = array(
+      'title' => t('GitHub'),
+      'domain' => 'github.com',
+    );
+}
