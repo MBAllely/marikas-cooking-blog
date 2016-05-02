@@ -1,0 +1,5 @@
+name = Content Tabs
+description = A module used to hide tabs in custom content type creations.
+package = Other
+core = 7.x
+files[] = content_tabs.module
