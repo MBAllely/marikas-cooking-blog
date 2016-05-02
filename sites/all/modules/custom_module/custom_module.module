@@ -3,6 +3,6 @@
 function custom_module_form_alter(&$form, &$form_state, $form_id) {
     if ($form_id == 'contact_site_form') {
         $form['copy']['#access'] = 0;
-        $form['subject']['#required'] = 0;
+        $form['subject']['#type'] = 'hidden';
     }
 }
