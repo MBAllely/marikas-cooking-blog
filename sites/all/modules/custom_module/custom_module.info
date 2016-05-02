@@ -1,0 +1,5 @@
+name = My Custom Module
+description = a custom module test
+package = Other
+core = 7.x
+files[] = custom_module.module
