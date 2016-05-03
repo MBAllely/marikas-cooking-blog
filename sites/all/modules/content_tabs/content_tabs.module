@@ -15,6 +15,14 @@ function content_tabs_form_alter(&$form, &$form_state, $form_id) {
         $form['author']['#access'] = 0;
 
     }
+}
 
+function content_tabs_form_node_form_alter(&$form, &$form_state){
+    $form['#after_build'][] = 'custom_after_build';
+}
 
+function custom_after_build($form, &$form_state) {
+    $form['path']['#access'] = 0;
+    $form['menu']['#access'] = 0;
+    return ($form);
 }
