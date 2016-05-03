@@ -1,12 +1,13 @@
 <?php
 
+// global $user;
+
 function content_tabs_form_alter(&$form, &$form_state, $form_id) {
 
-    print '<pre>';
-    print_r ($form);
-    print '</pre>';
+    $user = user_load(1);
+    $roles = $user->roles;
 
-    if ($form_id) {
+    if ($form_id && !(in_array('administrator', $user->roles))) {
         $form['revision_information']['#access'] = 0;
         $form['options']['#access'] = 0;
         $form['path']['#access'] = 0;
@@ -18,7 +19,14 @@ function content_tabs_form_alter(&$form, &$form_state, $form_id) {
 }
 
 function content_tabs_form_node_form_alter(&$form, &$form_state){
-    $form['#after_build'][] = 'custom_after_build';
+
+    $user = user_load(1);
+    $roles = $user->roles;
+
+    if (!(in_array('administrator', $user->roles))) {
+        $form['#after_build'][] = 'custom_after_build';
+    }
+
 }
 
 function custom_after_build($form, &$form_state) {
